@@ -53,4 +53,4 @@ WORKDIR /home/
 #COPY . .
 
 #CMD ["python","train_image3.py"]
-CMD ["python","train2_nachi.py"]
+CMD ["python","train2.py"]
