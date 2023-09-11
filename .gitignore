@@ -1,0 +1,6 @@
+__pycache__/
+pth_/
+test_image_w*
+train_2_w*
+train2_nachi_pretrain.py
+Discordsend.py

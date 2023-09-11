@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  dlabv3plus_nachi:
+    build: ./
+    stdin_open: true
+    tty: true
+    security_opt:
+      - seccomp=unconfined
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]
+            count: all
+    volumes:
+      - .:/home/
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - /data/wonjong/23/Dataset:/Dataset
+    container_name: dlabv3p_nachi
