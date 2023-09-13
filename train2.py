@@ -21,10 +21,10 @@ torch.cuda.empty_cache()
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 def data_loder(dataset_path, batch_size, crop_size, transform='default'):
     train_dataset = SegmentationDataset(f'{dataset_path}/train/',crop_size,'augmentation')#, transform)
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 
     validation_dataset = SegmentationDataset(f'{dataset_path}/validation/',crop_size, 'augmentation')#, transform_nearest)
-    validation_loader = DataLoader(validation_dataset, batch_size=batch_size)
+    validation_loader = DataLoader(validation_dataset, batch_size=batch_size, drop_last=True)
 
     
     return train_loader, validation_loader#, test_loader
@@ -126,7 +126,7 @@ def main():
     batch_size = 4
     crop_size=[512,1280]#[512,1280]# [height, width]
     class_num = 3
-    data_path = '/Dataset/nachi_test'
+    data_path = '/Dataset/nachi_new_view'
     folder_name = data_path.split('/')[-1]
     train_loader, validation_loader = data_loder(data_path,batch_size,crop_size,'augmentation')
     
