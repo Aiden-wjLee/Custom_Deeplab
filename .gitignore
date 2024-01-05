@@ -1,5 +1,5 @@
 __pycache__/
-pth_/
+pth*
 test_image_w*
 train_2_w*
 train2_nachi_pretrain.py
